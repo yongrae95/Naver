@@ -1,22 +1,30 @@
 <html lang="ko">
-<head> <!-- head는 메타데이터 즉, 데이터의 데이터 데이터에 대한 설명 -->
-    <meta charset="UTF-8"> 
+  <head>
+    <!-- head는 메타데이터 즉, 데이터의 데이터 데이터에 대한 설명 -->
+    <meta charset="UTF-8" />
     <!-- UTF-8이 euc-kr로 적혀있을 수 있음 요즘은 UTF-8 고정(vscode의 밑에 select encoding도 UTF-8로 되어있어야함) -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- 인터넷 익스플로어에서도 엣지 브라우저 처럼 보이게 해라 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- 이 부분이 없으면 모바일에서 볼 때 글자들이 엄청 작게 나옴 -->
-    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico?1">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico?1" />
     <title>NAVER</title>
     <style>
-        #wrap {
-            text-align: center;
-        }
-        #wrap-center {
-            width: 1280px;
-            background-color: yellow;
-            display: inline-block;
-            /* <!-- display 속성은 요소들을 어떻게 배치하고 보여줄 것인지 결정한다
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #wrap {
+        text-align: center;
+      }
+
+      #wrap-center {
+        width: 1280px;
+        background-color: yellow;
+        display: inline-block;
+        /* <!-- display 속성은 요소들을 어떻게 배치하고 보여줄 것인지 결정한다
                 크게 none, block, inline, inline-block이 있다.
                 - none : UI 화면상 보이지 않도록 숨김(visibility:hidden, disabled=true 와 다르게 공간까지 사라짐)
                 - block : 화면의 가로 너비 기준으로 전체의 한 영역을 차지한다. width, height을 통해 사이즈 조절 가능하고
@@ -26,20 +34,47 @@
                 - inline-block : block과 inline의 특징을 모두 섞은 속성이다. 컨텐츠 만큼의 크기를 가지며 줄바꿈이 되지 않는다.
                 width, height을 통해 사이즈를 조절할 수 있다. 
                 --> */
-        }
-        #main {
-            height: 2000px;
-        }
+        /* inline-block을 통해 가운데 정렬을 시켰다. */
+      }
+
+      #header {
+        text-align: left;
+      }
+      
+      #header-hamburger {
+        display: inline-block;
+        padding: 8px;
+        /* header-hamburger에 몰아서 넣었더니 패딩이 백그라운드이미지 안에서 적용되어서 부모와 자식으로
+           나눠서 패딩을 적용해 주었더니 되었다. */
+      }
+
+      #header-hamburger > div {
+        width: 32px;
+        height: 32px;
+        background-image: url(./sp_main.png);
+        background-repeat: no-repeat;
+        background-size: 443px 424px;
+        background-position: -285px -214px;
+      }
+
+      #main {
+        height: 2000px;
+      }
     </style>
-</head>
-<body> <!-- body는 컨텐트 -->
+  </head>
+  <body>
+    <!-- body는 컨텐트 -->
     <div id="wrap">
-        <div id="wrap-center">
-            <div id="header"></div>
-            <div id="search"></div>
-            <div id="nav"></div>
-            <div id="main"></div>
+      <div id="wrap-center">
+        <div id="header">
+          <div id="header-hamburger">
+            <div></div>
+          </div>
         </div>
+        <div id="search"></div>
+        <div id="nav"></div>
+        <div id="main"></div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
